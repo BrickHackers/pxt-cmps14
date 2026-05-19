@@ -1,0 +1,25 @@
+{
+    "CMPS14|block": "Kompas CMPS14",
+    "CMPS14.readAzimuth|block": "azimut z CMPS14 s přesností %precision || adresa %addr",
+    "CMPS14.getDeviation|block": "směrová odchylka k cíli %targetHeading s přesností %precision || adresa %addr",
+    "CMPS14.readPitch|block": "náklon (pitch) z CMPS14 || adresa %addr",
+    "CMPS14.readRoll|block": "klopení (roll) z CMPS14 || adresa %addr",
+    "CMPS14.readCalibration|block": "stav kalibrace z CMPS14 || adresa %addr",
+    "CMPS14.storeCalibration|block": "uložit kalibrační profil do flash || adresa %addr",
+    "CMPS14.changeAddress|block": "změnit I2C adresu z %oldAddr na %newAddr",
+    
+    "CMPS14.rawMagnetometerX|block": "magnetometr osa X || adresa %addr",
+    "CMPS14.accelerationX|block": "akcelerometr osa X (m/s²) || adresa %addr",
+    "CMPS14.rawGyroX|block": "gyroskop osa X || adresa %addr",
+
+    "CMPS14_Precision.Degrees|block": "Celé stupně (0-359°)",
+    "CMPS14_Precision.Tenths|block": "Desetiny stupně (0-359.9°)",
+    "CMPS14_Precision.Byte|block": "Bajtový rozsah (0-255)",
+
+    "{id:group}Navigation": "Navigace",
+    "{id:group}Spatial Position": "Poloha v prostoru",
+    "{id:group}Settings": "Nastavení",
+    "{id:group}Magnetometer": "Magnetometr",
+    "{id:group}Accelerometer": "Akcelerometr",
+    "{id:group}Gyroscope": "Gyroskop"
+}
