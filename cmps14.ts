@@ -122,18 +122,121 @@ namespace CMPS14 {
         pins.i2cWriteNumber(i2cAddr, (0x00 << 8) | newAddr, NumberFormat.UInt16BE, false); basic.pause(20);
     }
 
-    // --- MAGNETOMETER (ADVANCED) ---
+    // ==========================================
+    // "MORE..." SECTION (ADVANCED) + INDIVIDUAL GROUPS
+    // ==========================================
+
+    // --- MAGNETOMETER ---
+    /**
+     * Raw magnetometer value for X axis.
+     */
     //% block="raw magnetometer X || address %addr"
-    //% addr.defl=0xC0   //% group="Magnetometer" advanced=true
-    export function rawMagnetometerX(addr: number = 0xC0): number { return 0; } // Zkráceno pro přehlednost
+    //% addr.defl=0xC0
+    //% group="Magnetometer" advanced=true
+    export function rawMagnetometerX(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x06, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
 
-    // --- ACCELEROMETER (ADVANCED) ---
+    /**
+     * Raw magnetometer value for Y axis.
+     */
+    //% block="raw magnetometer Y || address %addr"
+    //% addr.defl=0xC0
+    //% group="Magnetometer" advanced=true
+    export function rawMagnetometerY(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x08, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
+
+    /**
+     * Raw magnetometer value for Z axis.
+     */
+    //% block="raw magnetometer Z || address %addr"
+    //% addr.defl=0xC0
+    //% group="Magnetometer" advanced=true
+    export function rawMagnetometerZ(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x0A, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
+
+    // --- ACCELEROMETER ---
+    /**
+     * Acceleration in X axis compensated for gravity (in m/s²).
+     */
     //% block="accelerometer X (m/s²) || address %addr"
-    //% addr.defl=0xC0   //% group="Accelerometer" advanced=true
-    export function accelerationX(addr: number = 0xC0): number { return 0; }
+    //% addr.defl=0xC0
+    //% group="Accelerometer" advanced=true
+    export function accelerationX(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x0C, NumberFormat.Int8LE, true);
+        let raw = pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+        return raw / 256;
+    }
 
-    // --- GYROSCOPE (ADVANCED) ---
+    /**
+     * Acceleration in Y axis compensated for gravity (in m/s²).
+     */
+    //% block="accelerometer Y (m/s²) || address %addr"
+    //% addr.defl=0xC0
+    //% group="Accelerometer" advanced=true
+    export function accelerationY(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x0E, NumberFormat.Int8LE, true);
+        let raw = pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+        return raw / 256;
+    }
+
+    /**
+     * Acceleration in Z axis compensated for gravity (in m/s²).
+     */
+    //% block="accelerometer Z (m/s²) || address %addr"
+    //% addr.defl=0xC0
+    //% group="Accelerometer" advanced=true
+    export function accelerationZ(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x10, NumberFormat.Int8LE, true);
+        let raw = pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+        return raw / 256;
+    }
+
+    // --- GYROSCOPE ---
+    /**
+     * Raw gyro rotation speed value (X axis).
+     */
     //% block="gyroscope X || address %addr"
-    //% addr.defl=0xC0   //% group="Gyroscope" advanced=true
-    export function rawGyroX(addr: number = 0xC0): number { return 0; }
+    //% addr.defl=0xC0
+    //% group="Gyroscope" advanced=true
+    export function rawGyroX(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x12, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
+
+    /**
+     * Raw gyro rotation speed value (Y axis).
+     */
+    //% block="gyroscope Y || address %addr"
+    //% addr.defl=0xC0
+    //% group="Gyroscope" advanced=true
+    export function rawGyroY(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x14, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
+
+    /**
+     * Raw gyro rotation speed value (Z axis).
+     */
+    //% block="gyroscope Z || address %addr"
+    //% addr.defl=0xC0
+    //% group="Gyroscope" advanced=true
+    export function rawGyroZ(addr: number = 0xC0): number {
+        let i2cAddr = addr >> 1;
+        pins.i2cWriteNumber(i2cAddr, 0x16, NumberFormat.Int8LE, true);
+        return pins.i2cReadNumber(i2cAddr, NumberFormat.Int16BE, false);
+    }
 }
