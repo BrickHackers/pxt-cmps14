@@ -1,5 +1,5 @@
 
-> Open this page at [https://emmetbrickhacker.github.io/pxt-cmps14/](https://emmetbrickhacker.github.io/pxt-cmps14/)
+> Open this page at [https://brickhackers.github.io/pxt-cmps14/](https://brickhackers.github.io/pxt-cmps14/)
 
 ## Use as Extension
 
@@ -16,7 +16,7 @@ To edit this repository in MakeCode.
 
 * open [https://makecode.microbit.org/](https://makecode.microbit.org/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/emmetbrickhacker/pxt-cmps14** and click import
+* paste **https://github.com/brickhackers/pxt-cmps14** and click import
 
 #### Metadata (used for search, rendering)
 
